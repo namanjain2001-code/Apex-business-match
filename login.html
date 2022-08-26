@@ -84,7 +84,7 @@
 
       <div class="form-floating">
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" id="inlineRadio" value="investerlogin" required name="lgnType">
+          <input class="form-check-input" type="radio" id="inlineRadio" value = "investorlogin" required name="lgnType">
           <label class="form-check-label" for="inlineRadio1">I'm investor</label>
         </div>
         <div class="form-check form-check-inline">
@@ -127,6 +127,7 @@
         if (req.readyState == 4 && req.status == 200) {
           if (req.responseText == "0") {
             document.getElementById('error-box').style.display = 'block';
+            console.log(req.responseText);
             console.log("error");
           } else {
             location.href = req.responseText;

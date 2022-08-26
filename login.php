@@ -2,6 +2,7 @@
 session_start();
 
 $lgntype = $_GET['lgntype'];
+
 $email = $_GET['email'];
 $pass = $_GET['pass'];
 
@@ -27,12 +28,12 @@ else
     $_SESSION['email'] = $email;
     if($lgntype=="investorlogin")
     {
-        echo ("http://localhost/Apex-business-match/investor.html");
+        echo ("http://localhost/Apex-business-match/investor-home.html");
         $_SESSION['investorEmail'] = $email;
     }
     else 
     {
-        echo ("http://localhost/Apex-business-match/invest.html");
+        echo ("http://localhost/Apex-business-match/entrepreneur-home.html");
         $_SESSION['entEmail'] = $email;
     }
 }
