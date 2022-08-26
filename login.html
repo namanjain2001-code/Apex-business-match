@@ -62,7 +62,7 @@
   <main class="form-signin">
     <form id="form" action="none">
 
-      <h1 class="h3 mb-3 fw-normal">Register For Continue</h1>
+      <h1 class="h3 mb-3 fw-normal">Login For Continue</h1>
       <div id="error-box">
         <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
 
@@ -84,12 +84,12 @@
 
       <div class="form-floating">
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" id="inlineRadio" value="investor" required name="lgnType">
+          <input class="form-check-input" type="radio" id="inlineRadio" value="investerlogin" required name="lgnType">
           <label class="form-check-label" for="inlineRadio1">I'm investor</label>
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" id="inlineRadio" value="ent" required name="lgnType">
-          <label class="form-check-label" for="inlineRadio2">I' Entrepreneur</label>
+          <input class="form-check-input" type="radio" id="inlineRadio" value="entlogin" required name="lgnType">
+          <label class="form-check-label" for="inlineRadio2">I'm Entrepreneur</label>
         </div>
 
 
@@ -109,19 +109,19 @@
           <input type="checkbox" value="remember-me"> Remember me
         </label>
       </div>
-      <button class="w-100 btn btn-lg btn-primary" type="button" onclick="signin()" id="lgn-btn">Sign Up</button>
+      <button class="w-100 btn btn-lg btn-primary" type="button" onclick="signin()" id="lgn-btn">Sign in</button>
       <p class="mt-5 mb-3 text-muted">&copy; 2017-2021</p>
     </form>
     <br>
     <p>Or</p>
-    <a href="login.html">I already have account</a>
+    <a href="signup.html">I don't have account</a>
   </main>
   <script>
     function signin() {
 
       const req = new XMLHttpRequest();
 
-      req.open("get", "http://localhost/Apex-business-match/signup.php?lgntype=" + document.querySelector('input[name="lgnType"]:checked').value + "&email=" + document.getElementById('email').value + "&pass=" + document.getElementById('pass').value, true);
+      req.open("get", "http://localhost/Apex-business-match/login.php?lgntype=" + document.querySelector('input[name="lgnType"]:checked').value + "&email=" + document.getElementById('email').value + "&pass=" + document.getElementById('pass').value, true);
       req.send();
       req.onreadystatechange = function() {
         if (req.readyState == 4 && req.status == 200) {
@@ -129,9 +129,8 @@
             document.getElementById('error-box').style.display = 'block';
             console.log("error");
           } else {
-            
             location.href = req.responseText;
-            alert("Account added successfully. Login to continue");
+            console.log(req.responseText);
 
           }
 
