@@ -19,11 +19,4 @@ else {
         $error = mysqli_query($con,$q);
     }
 }
-
-
 ?>
-
-
-
-
-
