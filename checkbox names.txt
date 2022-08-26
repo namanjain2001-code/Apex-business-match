@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Travel & Transportation 
 Real Estate
 Personal Care & Services
@@ -15,3 +16,22 @@ Education
 Construction
 Computers & Electronics
 IT solutions 
+=======
+Travel & Transportation 
+Real Estate
+Personal Care & Services
+Miscellaneous
+Merchants 
+Manufacturing
+ Wholesale
+Distribution
+Legal
+Collectibles
+Health & Medicine
+Food & Dining
+Entertainment
+Education 
+Construction
+Computers & Electronics
+IT solutions 
+>>>>>>> 810a3da6a3fc35eae90137d2ce18d45c089d1159
