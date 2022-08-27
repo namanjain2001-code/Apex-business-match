@@ -128,10 +128,11 @@ $num = mysqli_num_rows($result);
       <span class="me-2 mt-3">
         <input
           type="checkbox"
-          class="btn-check btn-sm"
+          class="btn-check btn-sm slct"
+          onchange="search()"
           id="travel-check"
           autocomplete="off"
-        />
+          name="categories[]" value =""/>
         <label class="btn btn-outline-light" for="travel-check">Travel</label
         ><br />
       </span>
@@ -140,10 +141,12 @@ $num = mysqli_num_rows($result);
       <span class="me-2 mt-3">
         <input
           type="checkbox"
-          class="btn-check btn-sm"
+          class="btn-check btn-sm slct"
+          onchange="search()"
           id="real-state"
           autocomplete="off"
-        />
+          name="categories[]"
+          value ="realState"        />
         <label class="btn btn-outline-light" for="real-state">
           Real State</label
         >
@@ -154,10 +157,11 @@ $num = mysqli_num_rows($result);
            <span class="me-2 mt-3">
             <input
               type="checkbox"
-              class="btn-check btn-sm"
+              class="btn-check btn-sm slct"
+              onchange="search()"
               id="Personal-Care"
               autocomplete="off"
-            />
+name="categories[]" value ="PCS"            />
             <label class="btn btn-outline-light" for="Personal-Care">
               Personal Care & Services</label
             >
@@ -168,10 +172,11 @@ $num = mysqli_num_rows($result);
          <span class="me-2 mt-3">
           <input
             type="checkbox"
-            class="btn-check btn-sm"
+            class="btn-check btn-sm slct"
+            onchange="search()"
             id="Miscellaneous"
             autocomplete="off"
-          />
+name="categories[]" value ="miscellaneous"          />
           <label class="btn btn-outline-light" for="Miscellaneous">
             Miscellaneous</label
           >
@@ -182,9 +187,10 @@ $num = mysqli_num_rows($result);
         <span class="me-2 mt-3">
           <input
             type="checkbox"
-            class="btn-check btn-sm"
+            class="btn-check btn-sm slct"
+            onchange="search()"
             id="Merchants"
-            autocomplete="off"
+            autocomplete="off" name="categories[]" value ="merchants"
           />
           <label class="btn btn-outline-light" for="Merchants">
             Merchants</label
@@ -196,10 +202,11 @@ $num = mysqli_num_rows($result);
         <span class="me-2 mt-3">
           <input
             type="checkbox"
-            class="btn-check btn-sm"
+            class="btn-check btn-sm slct"
+            onchange="search()"
             id="Manufacturing"
             autocomplete="off"
-          />
+name="categories[]" value ="manufacturing"          />
           <label class="btn btn-outline-light" for="Manufacturing">
             Manufacturing</label
           >
@@ -210,10 +217,12 @@ $num = mysqli_num_rows($result);
         <span class="me-2 mt-3">
           <input
             type="checkbox"
-            class="btn-check btn-sm"
+            class="btn-check btn-sm slct"
+            onchange="search()"
             id="Wholesale"
             autocomplete="off"
-          />
+            name="categories[]"
+            value ="wholesale"/>
           <label class="btn btn-outline-light" for="Wholesale">
             Wholesale</label
           >
@@ -224,10 +233,11 @@ $num = mysqli_num_rows($result);
      <span class="me-2 mt-3">
       <input
         type="checkbox"
-        class="btn-check btn-sm"
+        class="btn-check btn-sm slct"
+        onchange="search()"
         id="Distribution"
         autocomplete="off"
-      />
+name="categories[]" value ="distribution"      />
       <label class="btn btn-outline-light" for="Distribution">
         Distribution</label
       >
@@ -238,10 +248,11 @@ $num = mysqli_num_rows($result);
          <span class="me-2 mt-3">
           <input
             type="checkbox"
-            class="btn-check btn-sm"
+            class="btn-check btn-sm slct"
+            onchange="search()"
             id="Legal"
             autocomplete="off"
-          />
+name="categories[]" value ="legal"          />
           <label class="btn btn-outline-light" for="Legal">
             Legal</label
           >
@@ -252,10 +263,11 @@ $num = mysqli_num_rows($result);
              <span class="me-2 mt-3">
               <input
                 type="checkbox"
-                class="btn-check btn-sm"
+                class="btn-check btn-sm slct"
+                onchange="search()"
                 id="Collectibles"
                 autocomplete="off"
-              />
+name="categories[]" value ="Collectibles"              />
               <label class="btn btn-outline-light" for="Collectibles">
                 Collectibles</label
               >
@@ -266,10 +278,11 @@ $num = mysqli_num_rows($result);
         <span class="me-2 mt-3">
           <input
             type="checkbox"
-            class="btn-check btn-sm"
+            class="btn-check btn-sm slct"
+            onchange="search()"
             id="Health"
             autocomplete="off"
-          />
+name="categories[]" value ="health"          />
           <label class="btn btn-outline-light" for="Health">
             Health & Medicines</label
           >
@@ -280,10 +293,11 @@ $num = mysqli_num_rows($result);
              <span class="me-2 mt-3">
               <input
                 type="checkbox"
-                class="btn-check btn-sm"
+                class="btn-check btn-sm slct"
+                onchange="search()"
                 id="Food"
                 autocomplete="off"
-              />
+name="categories[]" value ="food"              />
               <label class="btn btn-outline-light" for="Food">
                 Food & Dining</label
               >
@@ -294,10 +308,11 @@ $num = mysqli_num_rows($result);
         <span class="me-2 mt-3">
           <input
             type="checkbox"
-            class="btn-check btn-sm"
+            class="btn-check btn-sm slct"
+            onchange="search()"
             id="Entertainment"
             autocomplete="off"
-          />
+name="categories[]" value ="entertainment"          />
           <label class="btn btn-outline-light" for="Entertainment">
             Entertainment</label
           >
@@ -308,10 +323,11 @@ $num = mysqli_num_rows($result);
              <span class="me-2 mt-3">
               <input
                 type="checkbox"
-                class="btn-check btn-sm"
+                class="btn-check btn-sm slct"
+                onchange="search()"
                 id="Education"
                 autocomplete="off"
-              />
+name="categories[]" value ="education"              />
               <label class="btn btn-outline-light" for="Education">
                 Education</label
               >
@@ -322,10 +338,11 @@ $num = mysqli_num_rows($result);
         <span class="me-2 mt-3">
           <input
             type="checkbox"
-            class="btn-check btn-sm"
+            class="btn-check btn-sm slct"
+            onchange="search()"
             id="Construction"
             autocomplete="off"
-          />
+name="categories[]" value ="construction"          />
           <label class="btn btn-outline-light" for="Construction">
             Construction</label
           >
@@ -336,10 +353,11 @@ $num = mysqli_num_rows($result);
              <span class="me-2 mt-3">
               <input
                 type="checkbox"
-                class="btn-check btn-sm"
+                class="btn-check btn-sm slct"
+                onchange="search()"
                 id="Computers"
                 autocomplete="off"
-              />
+name="categories[]" value ="computers"              />
               <label class="btn btn-outline-light" for="Computers">
                 Computers & Electronics</label
               >
@@ -350,10 +368,11 @@ $num = mysqli_num_rows($result);
         <span class="me-2 mt-3">
           <input
             type="checkbox"
-            class="btn-check btn-sm"
+            class="btn-check btn-sm slct"
+            onchange="search()"
             id="IT-solutions"
             autocomplete="off"
-          />
+name="categories[]" value ="it"/>
           <label class="btn btn-outline-light" for="IT-solutions">
             IT Solutions</label
           >
@@ -415,7 +434,8 @@ $num = mysqli_num_rows($result);
         
       </div>
     </div>
-
+    
+     <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
       integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"

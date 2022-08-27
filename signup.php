@@ -10,7 +10,7 @@ if(!$con)
 echo "connection failed"; 
 else {
     if($lgntype=="investor"){
-        $q = "insert into investerlogin (Email,Password) values ('$email','$pass')";
+        $q = "insert into investorlogin (Email,Password) values ('$email','$pass')";
         $error = mysqli_query($con,$q);
         echo("http://localhost/Apex-business-match/login.html");
     }
@@ -18,9 +18,10 @@ else {
     {
         $q = "insert into entlogin (Email,Password) values ('$email','$pass')";
         $error = mysqli_query($con,$q);
-    }
-    echo("http://localhost/Apex-business-match/login.html");
+        echo("http://localhost/Apex-business-match/login.html");
 }
+    }
+    
 
 ?>
 
