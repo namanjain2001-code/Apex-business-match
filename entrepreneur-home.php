@@ -43,9 +43,8 @@ $num = mysqli_num_rows($result);
     <link href="bootstrap.min.css" rel="stylesheet" />
 
     <style>
-      body{
+      body {
         background-image: url(./bg3.jpg) !important;
-        
       }
       .truncate-
       .bd-placeholder-img {
@@ -124,21 +123,136 @@ $num = mysqli_num_rows($result);
       </header>
     </div>
 
-
-
-
     <div class="container mt-4">
-        <h2>INVESTORS</h2>
-        <hr>
+      <h2>INVESTORS</h2>
+      <hr />
     </div>
 
     <!-- INVESTOR CONTAINER -->
-    <div class="container ">
+    <div class="container">
       <div class="row">
+<<<<<<< HEAD
         <script>
           let l;
           let valuel;
         </script>
+=======
+<<<<<<< HEAD:investor.html
+        <div
+          class="card text-white bg-dark mb-3 mt-5 me-4 column-6"
+          style="max-width: 540px"
+        >
+          <div class="row g-0 h-100">
+            <div class="col-md-4 mt-auto mb-auto ps-2 pe-2">
+              <img
+                src="./logo.png.png "
+                class="img-fluid rounded-start"
+                alt="..."
+              />
+            </div>
+            <div class="col-md-8">
+              <div class="card-body text-start h-100">
+                <h4 class="card-title">Minimaloholic</h4>
+                <p class="card-text">
+                  This is a wider card with supporting text below as a natural
+                  lead-in t
+                </p>
+                <span class="card-text mt-1"
+                  ><small class="text-muted">Last updated 3 mins ago</small>
+                  <a href="#" class="stretched-link">More...</a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="card text-white bg-dark mb-3 mt-5 me-4 column-6"
+          style="max-width: 540px"
+        >
+          <div class="row g-0 h-100">
+            <div class="col-md-4 mt-auto mb-auto ps-2 pe-2">
+              <img
+                src="./logo.png.png "
+                class="img-fluid rounded-start"
+                alt="..."
+              />
+            </div>
+            <div class="col-md-8">
+              <div class="card-body text-start">
+                <h4 class="card-title">Minimaloholic</h4>
+                <p class="card-text">
+                  This is a wider card with supporting text below as a natural
+                  lead-in to additional content. This content is a little bit
+                  longer.
+                </p>
+                <span class="card-text"
+                  ><small class="text-muted"
+                    >Last updated 3 mins ago</small
+                  ></span
+                >
+                <a href="#" class="stretched-link">More...</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="card text-white bg-dark mb-3 mt-5 me-4"
+          style="max-width: 540px"
+        >
+          <div class="row g-0 h-100">
+            <div class="col-md-4 mt-auto mb-auto ps-2 pe-2">
+              <img
+                src="./logo.png.png "
+                class="img-fluid rounded-start"
+                alt="..."
+              />
+            </div>
+            <div class="col-md-8">
+              <div class="card-body text-start">
+                <h4 class="card-title">Minimaloholic</h4>
+                <p class="card-text">
+                  This is a wider card with supporting text below as a natural
+                  lead-in to additional content. This content is a little bit
+                  longer.
+                </p>
+                <span class="card-text"
+                  ><small class="text-muted"
+                    >Last updated 3 mins ago</small
+                  ></span
+                >
+                <a href="#" class="stretched-link">More...</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="card text-white bg-dark mb-3 mt-5 me-4"
+          style="max-width: 540px"
+        >
+          <div class="row g-0 h-100">
+            <div class="col-md-4 mt-auto mb-auto ps-2 pe-2">
+              <img
+                src="./logo.png.png "
+                class="img-fluid rounded-start"
+                alt="..."
+              />
+            </div>
+            <div class="col-md-8">
+              <div class="card-body text-start">
+                <h4 class="card-title">Minimaloholic</h4>
+                <p class="card-text">
+                  This is a wider card with supporting text below as a natural
+                  lead-in to additional content. This content is a little bit
+                  longer.
+                </p>
+                <span class="card-text"
+                  ><small class="text-muted"
+                    >Last updated 3 mins ago</small
+                  ></span
+                >
+                <a href="#" class="stretched-link">More...</a>
+=======
+>>>>>>> 9be869e529556cfaf31aea4180b8e6a1c31f0e2f
         
         <?php 
         for($i=1;$i<=$num;$i++)
@@ -163,6 +277,7 @@ $num = mysqli_num_rows($result);
                 </script>
                 <span class="card-text"><small class="text-muted">Last updated 3 mins ago</small></span>
                 <a href="entrepreneur-home-more.php?investorEmail=<?php echo($row['investorEmail']); ?>" class="stretched-link ">More...</a>
+>>>>>>> 72fe74d7f890544c457a89b077dbe7ed636f0e11:entrepreneur-home.php
               </div>
             </div>
           </div>
@@ -175,23 +290,6 @@ $num = mysqli_num_rows($result);
         
       </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
