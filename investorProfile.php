@@ -102,9 +102,9 @@ $row=mysqli_fetch_array($result);
     </div>
   </header>
   
-  <div>
-    <form class="row g-3" method="post" action="investorProfileEdit.php">
-        <div class="col-md-6">
+  <div class="mb-6">
+    <form class="row g-3 mb-3" method="post" action="investorProfileEdit.php">
+        <div class="col-md-6 mb-3">
           <label for="investorName" class="form-label">Investor/Orgnisation Name</label>
           <input type="text" class="form-control" id="investorName" name="investorName" value="<?php if($num==0){echo("");}else{echo($row['investorName']);} ?>">
 
@@ -145,6 +145,23 @@ $row=mysqli_fetch_array($result);
             document.getElementById("aboutInvestor").value += "<?php if($num==0){echo("");}else{echo($row['aboutInvestor']);} ?>";
             </script>
         </div>
+        <div class="col-md-12">
+          <div class="mb-3">
+              <label for="Image" class="form-label">Profile Image</label>
+              <input class="form-control" type="file" id="formFile" onchange="preview()">
+          </div>
+          <img id="frame" src="" class="img-fluid" />
+      </div>
+
+      <script>
+          function preview() {
+              frame.src = URL.createObjectURL(event.target.files[0]);
+          }
+          function clearImage() {
+              document.getElementById('formFile').value = null;
+              frame.src = "";
+          }
+      </script>
         <div class="col-md-6">
             <button type="reset" class="btn w-75 btn-primary">Reset</button>
           </div>
