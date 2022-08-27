@@ -112,6 +112,8 @@ $num = mysqli_num_rows($result);
               >Home</a
             >
             <a class="nav-link fw-bold py-1 px-0" href="investorProfile.php">Profile</a>
+          <a class="nav-link fw-bold py-1 px-0" href="./logout.php">Logout</a>
+
           </nav>
         </div>
       </header>
