@@ -18,12 +18,9 @@ else {
         $q = "insert into entlogin (Email,Password) values ('$email','$pass')";
         $error = mysqli_query($con,$q);
     }
+    echo("http://localhost/Apex-business-match/login.html");
 }
 
-
 ?>
-
-
-
 
 

@@ -1,3 +1,13 @@
+<?php
+session_start();
+$entEmail = $_SESSION['entEmail'];
+$con = mysqli_connect('localhost', 'root');
+mysqli_select_db($con, 'apex-business-match');
+$q = "select * from entprofile where entEmail='$entEmail'";
+$result = mysqli_query($con, $q);
+$num = mysqli_num_rows($result);
+$row=mysqli_fetch_array($result);
+?>
 <!doctype html>
 <html lang="en" class="h-100">
   <head>
@@ -17,7 +27,6 @@
 <link href="bootstrap.min.css" rel="stylesheet">
 
     <style>
-      body{background-image: url(./bg2.jpg) !important;}
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
@@ -91,66 +100,46 @@
   </header>
 
   <div>
-    <form class="row g-3">
+    <form class="row g-3" method="post" action="entProfileEdit.php">
         <div class="col-md-6">
-          <label for="investorName" class="form-label">Enterprenuer Name</label>
-          <input type="text" class="form-control" id="investorName" name="investorName">
+          <label for="entName" class="form-label">Enterprenuer Name</label>
+          <input type="text" class="form-control" id="entName" name="entName" value="<?php if($num==0){echo("");}else{echo($row['entName']);} ?>">
         </div>
         <div class="col-md-6">
-            <label for="orgnisationName" class="form-label">Business Name</label>
-            <input type="text" class="form-control" id="orgnisationName" name="orgnisationName">
+            <label for="entBusinessName" class="form-label">Business Name</label>
+            <input type="text" class="form-control" id="entBusinessName" name="entBusinessName" value="<?php if($num==0){echo("");}else{echo($row['entBusinessName']);} ?>">
           </div>
         <div class="col-md-6">
           <label for="investorEmail" class="form-label">Email</label>
-          <input type="email" class="form-control" id="investorEmail" name="investorEmail">
+          
+          <input  disabled type="email" class="form-control" id="entEmail" name="entEmail" value="<?php echo($entEmail) ?>">
         </div>
         <div class="col-md-6">
-          <label for="investorSite" class="form-label">Website/Portfolio</label>
-          <input type="text" class="form-control" id="investorSite" name="investorSite">
+          <label for="entSite" class="form-label">Website/Portfolio</label>
+          <input type="text" class="form-control" id="entSite" name="entSite" value="<?php if($num==0){echo("");}else{echo($row['entSite']);} ?>">
         </div>
         <div class="col-md-6">
-          <label for="investorLink" class="form-label">Linkdin</label>
-          <input type="text" class="form-control" id="investorLink" name="investorLink">
+          <label for="entLink" class="form-label">Linkdin</label>
+          <input type="text" class="form-control" id="entLink" name="entLink" value="<?php if($num==0){echo("");}else{echo($row['entLink']);} ?>">
         </div>
         <div class="col-md-6">
-            <label for="officeAddress" class="form-label">Education</label>
-            <input type="text" class="form-control" id="officeAddress" name="officeAddress">
+            <label for="entEducation" class="form-label">Education</label>
+            <input type="text" class="form-control" id="entEducation" name="entEducation" value="<?php if($num==0){echo("");}else{echo($row['entEducation']);} ?>">
           </div>
         <div class="col-md-12">
-            <label for="pastInv" class="form-label">About You</label>
-            <textarea type="text" class="form-control" id="officeAddress" name="officeAddress"></textarea>
+            <label for="entAbout" class="form-label">About You</label>
+            <textarea type="text" class="form-control" id="entAbout" name="entAbout"></textarea>
+            <script>
+            document.getElementById("entAbout").value += "<?php if($num==0){echo("");}else{echo($row['entAbout']);} ?>";
+            </script>
         </div> 
         <div class="col-12">
-          <label for="aboutInvestor" class="form-label">Residential Address</label>
-          <textarea type="text" class="form-control" id="aboutInvestor" name="investorName"></textarea>
+          <label for="entAddress" class="form-label">Residential Address</label>
+          <textarea type="text" class="form-control" id="entAddress" name="entAddress"></textarea>
+          <script>
+            document.getElementById("entAddress").value += "<?php if($num==0){echo("");}else{echo($row['entAddress']);} ?>";
+            </script>
         </div>
-        <div class="col-md-6">
-          <div class="mb-5">
-              <label for="Image" class="form-label">Profile Image</label>
-              <input class="form-control" type="file" id="formFile" onchange="preview()">
-              <!-- <button onclick="clearImage()" class="btn btn-primary mt-3">Click me</button> -->
-          </div>
-          <img id="frame" src="" class="img-fluid" />
-      </div>
-        <div class="col-md-6">
-          <div class="mb-5">
-              <label for="Image" class="form-label">Startup India Certificate</label>
-              <input class="form-control" type="file" id="formFile" onchange="preview()">
-              <!-- <button onclick="clearImage()" class="btn btn-primary mt-3">Click me</button> -->
-          </div>
-          <img id="frame" src="" class="img-fluid" />
-      </div>
-      
-
-      <script>
-          function preview() {
-              frame.src = URL.createObjectURL(event.target.files[0]);
-          }
-          function clearImage() {
-              document.getElementById('formFile').value = null;
-              frame.src = "";
-          }
-      </script>
         <div class="col-md-6">
             <button type="reset" class="btn w-75 btn-primary">Reset</button>
           </div>

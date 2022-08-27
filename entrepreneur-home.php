@@ -1,3 +1,21 @@
+<?php
+session_start();
+$con = mysqli_connect('localhost','root');
+mysqli_select_db($con,'apex-business-match');
+$q = "select * from investorprofile";
+
+$result=mysqli_query($con,$q);
+if(!$result)
+{
+    echo mysqli_error($con);
+}
+else{
+$num = mysqli_num_rows($result);
+
+
+
+}
+?>
 <!DOCTYPE html>
 <html lang="en" class="h-100">
   <head>
@@ -25,7 +43,7 @@
     <link href="bootstrap.min.css" rel="stylesheet" />
 
     <style>
-      body{
+      body {
         background-image: url(./bg3.jpg) !important;
       }
       .bd-placeholder-img {
@@ -96,7 +114,7 @@
               href="#"
               >Home</a
             >
-            <a class="nav-link fw-bold py-1 px-0" href="#">Business</a>
+            <a class="nav-link fw-bold py-1 px-0" href="EnterprenuerProfile.php">Profile</a>
             <a class="nav-link fw-bold py-1 px-0" href="#">Investor</a>
             <a class="nav-link fw-bold py-1 px-0" href="#">Account</a>
           </nav>
@@ -105,253 +123,14 @@
     </div>
 
     <div class="container mt-4">
-      <h2>BUSINESSES</h2>
+      <h2>INVESTORS</h2>
       <hr />
     </div>
 
-    <!-- Categories -->
-    <div class="container border d-flex flex-wrap justify-content-evenly">
-      <!-- travel -->
-      <span class="me-2 mt-3">
-        <input
-          type="checkbox"
-          class="btn-check btn-sm"
-          id="travel-check"
-          autocomplete="off"
-        />
-        <label class="btn btn-outline-light" for="travel-check">Travel</label
-        ><br />
-      </span>
-
-      <!-- real state -->
-      <span class="me-2 mt-3">
-        <input
-          type="checkbox"
-          class="btn-check btn-sm"
-          id="real-state"
-          autocomplete="off"
-        />
-        <label class="btn btn-outline-light" for="real-state">
-          Real State</label
-        >
-        <br />
-      </span>
-
-           <!--Personal Care & Services  -->
-           <span class="me-2 mt-3">
-            <input
-              type="checkbox"
-              class="btn-check btn-sm"
-              id="Personal-Care"
-              autocomplete="off"
-            />
-            <label class="btn btn-outline-light" for="Personal-Care">
-              Personal Care & Services</label
-            >
-            <br />
-          </span>
-
-         <!-- Miscellaneous -->
-         <span class="me-2 mt-3">
-          <input
-            type="checkbox"
-            class="btn-check btn-sm"
-            id="Miscellaneous"
-            autocomplete="off"
-          />
-          <label class="btn btn-outline-light" for="Miscellaneous">
-            Miscellaneous</label
-          >
-          <br />
-        </span>
-
-        <!-- Merchants -->
-        <span class="me-2 mt-3">
-          <input
-            type="checkbox"
-            class="btn-check btn-sm"
-            id="Merchants"
-            autocomplete="off"
-          />
-          <label class="btn btn-outline-light" for="Merchants">
-            Merchants</label
-          >
-          <br />
-        </span>
-
-        <!-- Manufacturing -->
-        <span class="me-2 mt-3">
-          <input
-            type="checkbox"
-            class="btn-check btn-sm"
-            id="Manufacturing"
-            autocomplete="off"
-          />
-          <label class="btn btn-outline-light" for="Manufacturing">
-            Manufacturing</label
-          >
-          <br />
-        </span>
-
-            <!--Wholesale  -->
-        <span class="me-2 mt-3">
-          <input
-            type="checkbox"
-            class="btn-check btn-sm"
-            id="Wholesale"
-            autocomplete="off"
-          />
-          <label class="btn btn-outline-light" for="Wholesale">
-            Wholesale</label
-          >
-          <br />
-        </span>
-
-     <!--Distribution  -->
-     <span class="me-2 mt-3">
-      <input
-        type="checkbox"
-        class="btn-check btn-sm"
-        id="Distribution"
-        autocomplete="off"
-      />
-      <label class="btn btn-outline-light" for="Distribution">
-        Distribution</label
-      >
-      <br />
-    </span>
-
-         <!-- Legal  -->
-         <span class="me-2 mt-3">
-          <input
-            type="checkbox"
-            class="btn-check btn-sm"
-            id="Legal"
-            autocomplete="off"
-          />
-          <label class="btn btn-outline-light" for="Legal">
-            Legal</label
-          >
-          <br />
-        </span>
-
-             <!-- Collectibles  -->
-             <span class="me-2 mt-3">
-              <input
-                type="checkbox"
-                class="btn-check btn-sm"
-                id="Collectibles"
-                autocomplete="off"
-              />
-              <label class="btn btn-outline-light" for="Collectibles">
-                Collectibles</label
-              >
-              <br />
-            </span>
-
-                 <!-- Health & Medicines -->
-        <span class="me-2 mt-3">
-          <input
-            type="checkbox"
-            class="btn-check btn-sm"
-            id="Health"
-            autocomplete="off"
-          />
-          <label class="btn btn-outline-light" for="Health">
-            Health & Medicines</label
-          >
-          <br />
-        </span>
-        
-             <!-- Food & Dining  -->
-             <span class="me-2 mt-3">
-              <input
-                type="checkbox"
-                class="btn-check btn-sm"
-                id="Food"
-                autocomplete="off"
-              />
-              <label class="btn btn-outline-light" for="Food">
-                Food & Dining</label
-              >
-              <br />
-            </span>
-
-                 <!-- Entertainment -->
-        <span class="me-2 mt-3">
-          <input
-            type="checkbox"
-            class="btn-check btn-sm"
-            id="Entertainment"
-            autocomplete="off"
-          />
-          <label class="btn btn-outline-light" for="Entertainment">
-            Entertainment</label
-          >
-          <br />
-        </span>
-
-             <!-- Education  -->
-             <span class="me-2 mt-3">
-              <input
-                type="checkbox"
-                class="btn-check btn-sm"
-                id="Education"
-                autocomplete="off"
-              />
-              <label class="btn btn-outline-light" for="Education">
-                Education</label
-              >
-              <br />
-            </span>
-
-                 <!-- Construction  -->
-        <span class="me-2 mt-3">
-          <input
-            type="checkbox"
-            class="btn-check btn-sm"
-            id="Construction"
-            autocomplete="off"
-          />
-          <label class="btn btn-outline-light" for="Construction">
-            Construction</label
-          >
-          <br />
-        </span>
-
-             <!-- Computers & Electronics  -->
-             <span class="me-2 mt-3">
-              <input
-                type="checkbox"
-                class="btn-check btn-sm"
-                id="Computers"
-                autocomplete="off"
-              />
-              <label class="btn btn-outline-light" for="Computers">
-                Computers & Electronics</label
-              >
-              <br />
-            </span>
-
-                 <!-- IT Solutions -->
-        <span class="me-2 mt-3">
-          <input
-            type="checkbox"
-            class="btn-check btn-sm"
-            id="IT-solutions"
-            autocomplete="off"
-          />
-          <label class="btn btn-outline-light" for="IT-solutions">
-            IT Solutions</label
-          >
-          <br />
-        </span>
-    </div>
-
-    
-    <!-- BUSINESS CONTAINER -->
+    <!-- INVESTOR CONTAINER -->
     <div class="container">
       <div class="row">
+<<<<<<< HEAD:investor.html
         <div
           class="card text-white bg-dark mb-3 mt-5 me-4 column-6"
           style="max-width: 540px"
@@ -365,19 +144,16 @@
               />
             </div>
             <div class="col-md-8">
-              <div class="card-body text-start">
+              <div class="card-body text-start h-100">
                 <h4 class="card-title">Minimaloholic</h4>
                 <p class="card-text">
                   This is a wider card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
+                  lead-in t
                 </p>
-                <span class="card-text"
-                  ><small class="text-muted"
-                    >Last updated 3 mins ago</small
-                  ></span
-                >
-                <a href="#" class="stretched-link">More...</a>
+                <span class="card-text mt-1"
+                  ><small class="text-muted">Last updated 3 mins ago</small>
+                  <a href="#" class="stretched-link">More...</a>
+                </span>
               </div>
             </div>
           </div>
@@ -468,10 +244,35 @@
                   ></span
                 >
                 <a href="#" class="stretched-link">More...</a>
+=======
+        
+        <?php 
+        for($i=1;$i<=$num;$i++)
+        {
+          $row=mysqli_fetch_array($result);
+          ?>
+          <div class="card text-white bg-dark mb-3 mt-5 me-4 column-6" style="max-width: 540px;">
+          <div class="row g-0">
+            <div class="col-md-4 mt-auto mb-auto ps-2 pe-2">
+              <img src="logo.png.png" class="img-fluid  rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body text-start">
+                <h4 class="card-title"><?php echo($row['investorName']); ?></h4>
+                <p class="card-text"><?php echo($row['aboutInvestor']); ?></p>
+                <span class="card-text"><small class="text-muted">Last updated 3 mins ago</small></span>
+                <a href="entrepreneur-home-more.php?investorEmail=<?php echo($row['investorEmail']); ?>" class="stretched-link ">More...</a>
+>>>>>>> 72fe74d7f890544c457a89b077dbe7ed636f0e11:entrepreneur-home.php
               </div>
             </div>
           </div>
         </div>
+        <?php
+        }
+        ?>
+        
+        
+        
       </div>
     </div>
 
