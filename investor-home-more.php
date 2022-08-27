@@ -47,6 +47,7 @@ $row=mysqli_fetch_array($result);
           <a class="nav-link fw-bold py-1 px-0" href="#">Business</a>
           <a class="nav-link fw-bold py-1 px-0" href="#">ent</a>
           <a class="nav-link fw-bold py-1 px-0" href="#">Account</a>
+          <a class="nav-link fw-bold py-1 px-0" href="./logout.php">Logout</a>
         </nav>
       </div>
     </header>
