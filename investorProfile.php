@@ -95,6 +95,8 @@ $row=mysqli_fetch_array($result);
       <nav class="nav nav-masthead justify-content-center float-md-end">
         <a class="nav-link fw-bold py-1 px-0" aria-current="page" href="investor-home.php">Home</a>
         <a class="nav-link fw-bold py-1 px-0 active" href="invetorProfile.php">Profile</a>
+        <a class="nav-link fw-bold py-1 px-0" href="./logout.php">Logout</a>
+
       </nav>
     </div>
   </header>
