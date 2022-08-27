@@ -117,7 +117,7 @@ $num = mysqli_num_rows($result);
               >Home</a
             >
             <a class="nav-link fw-bold py-1 px-0" href= "entProfile.php">Personal Profile</a>
-            <a class="nav-link fw-bold py-1 px-0" href="entBusinessProfileEdit.php">Bussiness Profile</a>
+            <a class="nav-link fw-bold py-1 px-0" href="entBusinessProfile.php">Bussiness Profile</a>
           </nav>
         </div>
       </header>

@@ -91,9 +91,9 @@ $row=mysqli_fetch_array($result);
     <div>
       <img src="logo.png.png" style="display: inline-block;">
       <nav class="nav nav-masthead justify-content-center float-md-end">
-        <a class="nav-link fw-bold py-1 px-0" aria-current="page" href="#">Home</a>
+        <a class="nav-link fw-bold py-1 px-0" aria-current="page" href="entrepreneur-home.php">Home</a>
         <a class="nav-link fw-bold py-1 px-0" href= "entProfile.php">Personal Profile</a>
-        <a class="nav-link fw-bold py-1 px-0 active" href="entBusinessProfileEdit.php">Bussiness Profile</a>
+        <a class="nav-link fw-bold py-1 px-0 active" href="entBusinessProfile.php">Bussiness Profile</a>
       </nav>
     </div>
   </header>
