@@ -47,6 +47,7 @@ $num = mysqli_num_rows($result);
         background-image: url(./bg3.jpg) !important;
         
       }
+      .truncate-
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
@@ -134,6 +135,10 @@ $num = mysqli_num_rows($result);
     <!-- INVESTOR CONTAINER -->
     <div class="container ">
       <div class="row">
+        <script>
+          let l;
+          let valuel;
+        </script>
         
         <?php 
         for($i=1;$i<=$num;$i++)
@@ -141,14 +146,21 @@ $num = mysqli_num_rows($result);
           $row=mysqli_fetch_array($result);
           ?>
           <div class="card text-white bg-dark mb-3 mt-5 me-4 column-6" style="max-width: 540px;">
-          <div class="row g-0">
+          <div class="row g-0 h-100">
             <div class="col-md-4 mt-auto mb-auto ps-2 pe-2">
               <img src="logo.png.png" class="img-fluid  rounded-start" alt="...">
             </div>
             <div class="col-md-8">
-              <div class="card-body text-start">
+              <div class="card-body text-start h-100">
                 <h4 class="card-title"><?php echo($row['investorName']); ?></h4>
-                <p class="card-text"><?php echo($row['aboutInvestor']); ?></p>
+                <p id="<?php echo($i); ?>" class=" description card-text"><?php echo($row['aboutInvestor']); ?>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis perspiciatis nihil illo sint, distinctio soluta nulla saepe voluptate rem eius error exercitationem quidem possimus cupiditate facilis quaerat ex temporibus ipsa nesciunt vel veniam odio. Nesciunt doloremque ab perferendis repellendus voluptatibus ipsum, fuga aliquam maxime dolore. Assumenda incidunt suscipit cum in!</p>
+                <script>
+                  
+                  l=document.getElementById("<?php echo $i; ?>");
+                  valuel=l.innerText;
+                  l.innerText=valuel.substring(0,100);
+                  
+                </script>
                 <span class="card-text"><small class="text-muted">Last updated 3 mins ago</small></span>
                 <a href="entrepreneur-home-more.php?investorEmail=<?php echo($row['investorEmail']); ?>" class="stretched-link ">More...</a>
               </div>
@@ -185,7 +197,7 @@ $num = mysqli_num_rows($result);
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
       integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
       crossorigin="anonymous"
-    ></script>
+    ></scrip>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
       integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
