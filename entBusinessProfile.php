@@ -3,7 +3,7 @@ session_start();
 $entEmail = $_SESSION['entEmail'];
 $con = mysqli_connect('localhost', 'root');
 mysqli_select_db($con, 'apex-business-match');
-$q = "select * from entprofile where entEmail='$entEmail'";
+$q = "select * from entmybusiness where entEmail='$entEmail'";
 $result = mysqli_query($con, $q);
 $num = mysqli_num_rows($result);
 $row=mysqli_fetch_array($result);
@@ -91,53 +91,60 @@ $row=mysqli_fetch_array($result);
     <div>
       <img src="logo.png.png" style="display: inline-block;">
       <nav class="nav nav-masthead justify-content-center float-md-end">
-        <a class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="#">Home</a>
-        <a class="nav-link fw-bold py-1 px-0" href="#">Business</a>
-        <a class="nav-link fw-bold py-1 px-0" href="#">Investor</a>
-        <a class="nav-link fw-bold py-1 px-0" href="#">Account</a>
+        <a class="nav-link fw-bold py-1 px-0" aria-current="page" href="#">Home</a>
+        <a class="nav-link fw-bold py-1 px-0" href= "entProfile.php">Personal Profile</a>
+        <a class="nav-link fw-bold py-1 px-0 active" href="entBusinessProfileEdit.php">Bussiness Profile</a>
       </nav>
     </div>
   </header>
 
   <div>
-    <form class="row g-3" method="post" action="entProfileEdit.php">
+    <form class="row g-3" method="post" action="entBusinessProfileEdit.php">
         <div class="col-md-6">
-          <label for="entName" class="form-label">Enterprenuer Name</label>
-          <input type="text" class="form-control" id="entName" name="entName" value="<?php if($num==0){echo("");}else{echo($row['entName']);} ?>">
+          <label for="entBusinessOwner" class="form-label">Enterprenuer Name</label>
+          <input type="text" class="form-control" id="entBusinessOwner" name="entBusinessOwner" value="<?php if($num==0){echo("");}else{echo($row['entBusinessOwner']);} ?>">
         </div>
         <div class="col-md-6">
             <label for="entBusinessName" class="form-label">Business Name</label>
             <input type="text" class="form-control" id="entBusinessName" name="entBusinessName" value="<?php if($num==0){echo("");}else{echo($row['entBusinessName']);} ?>">
           </div>
         <div class="col-md-6">
-          <label for="investorEmail" class="form-label">Email</label>
+          <label for="entBusinessEmail" class="form-label">Business Email</label>
           
-          <input  disabled type="email" class="form-control" id="entEmail" name="entEmail" value="<?php echo($entEmail) ?>">
+          <input  type="email" class="form-control" id="entBusinessEmail" name="entBusinessEmail" value="<?php if($num==0){echo("");}else{echo($row['entBusinessEmail']);} ?>">
         </div>
         <div class="col-md-6">
-          <label for="entSite" class="form-label">Website/Portfolio</label>
-          <input type="text" class="form-control" id="entSite" name="entSite" value="<?php if($num==0){echo("");}else{echo($row['entSite']);} ?>">
+          <label for="entBusinessSite" class="form-label">Website/Portfolio</label>
+          <input type="text" class="form-control" id="entBusinessSite" name="entBusinessSite" value="<?php if($num==0){echo("");}else{echo($row['entBusinessSite']);} ?>">
         </div>
         <div class="col-md-6">
-          <label for="entLink" class="form-label">Linkdin</label>
-          <input type="text" class="form-control" id="entLink" name="entLink" value="<?php if($num==0){echo("");}else{echo($row['entLink']);} ?>">
+          <label for="entBusinessLink" class="form-label">Linkdin</label>
+          <input type="text" class="form-control" id="entBusinessLink" name="entBusinessLink" value="<?php if($num==0){echo("");}else{echo($row['entBusinessLink']);} ?>">
         </div>
         <div class="col-md-6">
-            <label for="entEducation" class="form-label">Education</label>
-            <input type="text" class="form-control" id="entEducation" name="entEducation" value="<?php if($num==0){echo("");}else{echo($row['entEducation']);} ?>">
-          </div>
+            <label for="entBussinessCategory" class="form-label">Linkdin</label>
+            <select class="form-select" aria-label="Default select example" id="entBussinessCategory" name="entBussinessCategory">
+                <option selected>Open this select menu</option>
+                <option value="1">Automotive</option>
+                <option value="2">Entertainment</option>
+                <option value="3">Health & Medicine</option>
+                <option value="3">Business Support &  Supplies</option>
+                <option value="3">Others</option>   
+              </select>
+        </div>
+        
         <div class="col-md-12">
-            <label for="entAbout" class="form-label">About You</label>
-            <textarea type="text" class="form-control" id="entAbout" name="entAbout"></textarea>
+            <label for="entBusinessDetail" class="form-label">Startup detail</label>
+            <textarea type="text" class="form-control" id="entBusinessDetail" name="entBusinessDetail"></textarea>
             <script>
-            document.getElementById("entAbout").value += "<?php if($num==0){echo("");}else{echo($row['entAbout']);} ?>";
+            document.getElementById("entBusinessDetail").value += "<?php if($num==0){echo("");}else{echo($row['entBusinessDetail']);} ?>";
             </script>
         </div> 
         <div class="col-12">
-          <label for="entAddress" class="form-label">Residential Address</label>
-          <textarea type="text" class="form-control" id="entAddress" name="entAddress"></textarea>
+          <label for="entBusinessAddress" class="form-label">Residential Address</label>
+          <textarea type="text" class="form-control" id="entBusinessAddress" name="entBusinessAddress"></textarea>
           <script>
-            document.getElementById("entAddress").value += "<?php if($num==0){echo("");}else{echo($row['entAddress']);} ?>";
+            document.getElementById("entBusinessAddress").value += "<?php if($num==0){echo("");}else{echo($row['entBusinessAddress']);} ?>";
             </script>
         </div>
         <div class="col-md-6">

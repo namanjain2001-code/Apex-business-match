@@ -113,12 +113,11 @@ $num = mysqli_num_rows($result);
             <a
               class="nav-link fw-bold py-1 px-0 active"
               aria-current="page"
-              href="#"
+              href="entrepreneur-home.php"
               >Home</a
             >
-            <a class="nav-link fw-bold py-1 px-0" href="EnterprenuerProfile.php">Profile</a>
-            <a class="nav-link fw-bold py-1 px-0" href="#">Investor</a>
-            <a class="nav-link fw-bold py-1 px-0" href="#">Account</a>
+            <a class="nav-link fw-bold py-1 px-0" href= "entProfile.php">Personal Profile</a>
+            <a class="nav-link fw-bold py-1 px-0" href="entBusinessProfileEdit.php">Bussiness Profile</a>
           </nav>
         </div>
       </header>
@@ -193,15 +192,15 @@ $num = mysqli_num_rows($result);
 
 
 
-    <script
+    <script>
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
       integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
       crossorigin="anonymous"
-    ></scrip>
-    <script
+    </script>
+    <script>
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
       integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
       crossorigin="anonymous"
-    ></script>
+    </script>
   </body>
 </html>
