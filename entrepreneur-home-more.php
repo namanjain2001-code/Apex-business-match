@@ -92,7 +92,7 @@ $row=mysqli_fetch_array($result);
                 </ul>
               </div>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-6">
               <div class="card mb-3 text-white bg-dark">
                 <div class="card-body">
                   <div class="row">
@@ -155,6 +155,71 @@ $row=mysqli_fetch_array($result);
 
 
 
+              <div >
+                <div class="card mb-3 text-white bg-dark">
+                  <h1 class="align-center text-center ">Business Details</h1>
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h6 class="mb-0">Name</h6>
+                      </div>
+                      <div class="col-sm-9 text-secondary">
+                      <?php echo($row['investorName']) ?>
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h6 class="mb-0">Email</h6>
+                      </div>
+                      <div class="col-sm-9 text-secondary">
+                      <?php echo($investorEmail); ?>
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h6 class="mb-0">Website</h6>
+                      </div>
+                      <div class="col-sm-9 text-secondary">
+                      <?php echo($row['orgnisationName']) ?>
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h6 class="mb-0">Category</h6>
+                      </div>
+                      <div class="col-sm-9 text-secondary">
+                      <?php echo($row['officeAddress']) ?>
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h6 class="mb-0">Details</h6>
+                      </div>
+                      <div class="col-sm-9 text-secondary">
+                      <?php echo($row['pastInv']) ?>
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h6 class="mb-0">Address</h6>
+                      </div>
+                      <div class="col-sm-9 text-secondary">
+                      <?php echo($row['aboutInvestor']) ?>
+                      </div>
+                    </div>
+                    
+                  </div>
+                </div>
+  
+  
+  
+  
+              </div>
             </div>
           </div>
 
