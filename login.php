@@ -25,16 +25,16 @@ if($num==0)
 }
 else
 {   
-    $_SESSION['email'] = $email;
+    
     if($lgntype=="investorlogin")
-    {
-        echo ("http://localhost/Apex-business-match/investor-home.html");
+    {   
         $_SESSION['investorEmail'] = $email;
+        echo ("http://localhost/Apex-business-match/investor-home.html");
     }
     else 
     {
-        echo ("http://localhost/Apex-business-match/entrepreneur-home.html");
         $_SESSION['entEmail'] = $email;
+        echo ("http://localhost/Apex-business-match/entrepreneur-home.php");   
     }
 }
 }
