@@ -29,7 +29,7 @@ else
     if($lgntype=="investorlogin")
     {   
         $_SESSION['investorEmail'] = $email;
-        echo ("http://localhost/Apex-business-match/investor-home.html");
+        echo ("http://localhost/Apex-business-match/investor-home.php");
     }
     else 
     {

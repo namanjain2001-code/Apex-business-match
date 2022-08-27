@@ -1,3 +1,18 @@
+<?php
+session_start();
+$con = mysqli_connect('localhost','root');
+mysqli_select_db($con,'apex-business-match');
+$q = "select * from entmybusiness";
+
+$result=mysqli_query($con,$q);
+if(!$result)
+{
+    echo mysqli_error($con);
+}
+else{
+$num = mysqli_num_rows($result);
+}
+?>
 <!DOCTYPE html>
 <html lang="en" class="h-100">
   <head>
@@ -96,9 +111,7 @@
               href="#"
               >Home</a
             >
-            <a class="nav-link fw-bold py-1 px-0" href="investorProfile.html">Profile</a>
-            <a class="nav-link fw-bold py-1 px-0" href="#">Investor</a>
-            <a class="nav-link fw-bold py-1 px-0" href="#">Account</a>
+            <a class="nav-link fw-bold py-1 px-0" href="investorProfile.php">Profile</a>
           </nav>
         </div>
       </header>
@@ -352,6 +365,15 @@
     <!-- BUSINESS CONTAINER -->
     <div class="container">
       <div class="row">
+      <script>
+          let l;
+          let valuel;
+        </script>
+      <?php 
+        for($i=1;$i<=$num;$i++)
+        {
+          $row=mysqli_fetch_array($result);
+          ?>
         <div
           class="card text-white bg-dark mb-3 mt-5 me-4 column-6"
           style="max-width: 540px"
@@ -366,112 +388,31 @@
             </div>
             <div class="col-md-8">
               <div class="card-body text-start">
-                <h4 class="card-title">Minimaloholic</h4>
+                <h4 class="card-title"><?php echo($row['entBusinessOwner']); ?></h4>
                 <p class="card-text">
-                  This is a wider card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
+                <?php echo($row['entBusinessDetail']); ?>
                 </p>
+                <script>
+                  
+                  l=document.getElementById("<?php echo $i; ?>");
+                  valuel=l.innerText;
+                  l.innerText=valuel.substring(0,100);
+                  
+                </script>
                 <span class="card-text"
                   ><small class="text-muted"
                     >Last updated 3 mins ago</small
                   ></span
                 >
-                <a href="#" class="stretched-link">More...</a>
+                <a href="investor-home-more.php?entEmail=<?php echo($row['entEmail']); ?>" class="stretched-link">More...</a>
               </div>
             </div>
           </div>
         </div>
-        <div
-          class="card text-white bg-dark mb-3 mt-5 me-4 column-6"
-          style="max-width: 540px"
-        >
-          <div class="row g-0">
-            <div class="col-md-4 mt-auto mb-auto ps-2 pe-2">
-              <img
-                src="./logo.png.png "
-                class="img-fluid rounded-start"
-                alt="..."
-              />
-            </div>
-            <div class="col-md-8">
-              <div class="card-body text-start">
-                <h4 class="card-title">Minimaloholic</h4>
-                <p class="card-text">
-                  This is a wider card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </p>
-                <span class="card-text"
-                  ><small class="text-muted"
-                    >Last updated 3 mins ago</small
-                  ></span
-                >
-                <a href="#" class="stretched-link">More...</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="card text-white bg-dark mb-3 mt-5 me-4"
-          style="max-width: 540px"
-        >
-          <div class="row g-0">
-            <div class="col-md-4 mt-auto mb-auto ps-2 pe-2">
-              <img
-                src="./logo.png.png "
-                class="img-fluid rounded-start"
-                alt="..."
-              />
-            </div>
-            <div class="col-md-8">
-              <div class="card-body text-start">
-                <h4 class="card-title">Minimaloholic</h4>
-                <p class="card-text">
-                  This is a wider card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </p>
-                <span class="card-text"
-                  ><small class="text-muted"
-                    >Last updated 3 mins ago</small
-                  ></span
-                >
-                <a href="#" class="stretched-link">More...</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="card text-white bg-dark mb-3 mt-5 me-4"
-          style="max-width: 540px"
-        >
-          <div class="row g-0">
-            <div class="col-md-4 mt-auto mb-auto ps-2 pe-2">
-              <img
-                src="./logo.png.png "
-                class="img-fluid rounded-start"
-                alt="..."
-              />
-            </div>
-            <div class="col-md-8">
-              <div class="card-body text-start">
-                <h4 class="card-title">Minimaloholic</h4>
-                <p class="card-text">
-                  This is a wider card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </p>
-                <span class="card-text"
-                  ><small class="text-muted"
-                    >Last updated 3 mins ago</small
-                  ></span
-                >
-                <a href="#" class="stretched-link">More...</a>
-              </div>
-            </div>
-          </div>
-        </div>
+        <?php } ?>
+        
+        
+        
       </div>
     </div>
 

@@ -127,11 +127,11 @@
         if (req.readyState == 4 && req.status == 200) {
           if (req.responseText == "0") {
             document.getElementById('error-box').style.display = 'block';
-            console.log(req.responseText);
+            
             console.log("error");
           } else {
             location.href = req.responseText;
-            console.log(req.responseText);
+            
 
           }
 

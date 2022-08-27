@@ -11,9 +11,6 @@ if(!$result)
 }
 else{
 $num = mysqli_num_rows($result);
-
-
-
 }
 ?>
 <!DOCTYPE html>

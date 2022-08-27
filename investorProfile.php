@@ -1,8 +1,6 @@
 <?php
 session_start();
-//$investorEmail = $_SESSION['investorEmail'];
-$investorEmail = "fuckmedude@gmail.com";
-$_SESSION['investorEmail'] = "fuckmedude@gmail.com";
+$investorEmail = $_SESSION['investorEmail'];
 $con = mysqli_connect('localhost', 'root');
 mysqli_select_db($con, 'apex-business-match');
 $q = "select * from investorprofile where investorEmail='$investorEmail'";
@@ -95,9 +93,8 @@ $row=mysqli_fetch_array($result);
     <div>
       <img src="logo.png.png" style="display: inline-block;">
       <nav class="nav nav-masthead justify-content-center float-md-end">
-        <a class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="#">Home</a>
-        <a class="nav-link fw-bold py-1 px-0" href="#">Features</a>
-        <a class="nav-link fw-bold py-1 px-0" href="#">Contact</a>
+        <a class="nav-link fw-bold py-1 px-0" aria-current="page" href="investor-home.php">Home</a>
+        <a class="nav-link fw-bold py-1 px-0 active" href="invetorProfile.php">Profile</a>
       </nav>
     </div>
   </header>
@@ -115,8 +112,8 @@ $row=mysqli_fetch_array($result);
             <input type="text" class="form-control" id="orgnisationName" name="orgnisationName" value="<?php if($num==0){echo("");}else{echo($row['orgnisationName']);} ?>">
           </div>
         <div class="col-md-6">
-          <label for="investorEmail" class="form-label">Email</label>
-          <input type="email" class="form-control" id="investorEmail" name="investorEmail" value="<?php if($num==0){echo("");}else{echo($row['investorEmail']);} ?>">
+          <label for="investorEmail" class="form-label" >Email</label>
+          <input disabled type="email" class="form-control" id="investorEmail" name="investorEmail" value="<?php echo($investorEmail);?>">
         </div>
         <div class="col-md-6">
           <label for="investorSite" class="form-label">Website</label>
