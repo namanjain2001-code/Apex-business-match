@@ -8,7 +8,7 @@ $entBusinessSite = $_POST['entBusinessSite'];
 $entBusinessLink = $_POST['entBusinessLink'];
 $entBusinessAddress = $_POST['entBusinessAddress'];
 $entBusinessDetail = $_POST['entBusinessDetail'];
-$entBusinessCategory = $_POST['entBussinessCategory'];
+$entBusinessCategory = $_POST['entBusinessCategory'];
 
 $con = mysqli_connect('localhost', 'root');
 mysqli_select_db($con, 'apex-business-match');

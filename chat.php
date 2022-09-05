@@ -1,4 +1,20 @@
-body{
+<?php
+session_start();
+$investorEmail = $_SESSION['investorEmail'];
+$entEmail = $_GET['entEmail'];
+
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Apex Business Match</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous" />
+  
+  <style>
+    body{
     background-image:url(./bg2.jpg) !important;
 }
 .card-bordered {
@@ -215,23 +231,23 @@ h4.card-title {
 }
 
 .media-chat.media-chat-reverse .media-body p {
-    float: right;
-    clear: right;
-    /* background-color: #48b0f7; */
+    margin-left: auto;
+    margin-right: 0px; 
+    background-color: #48b0f7;
     color: #fff;
 }
-.media-chat-reverse{
+/* .media-chat-reverse{
     float: right;
     clear: right;
     width: 100%;
     margin-right: 0;
 }
-
-.media-chat .media-chat-reverse .media-body {
+*/
+ .media-chat .media-chat-reverse .media-body {
 margin-left: auto;
 margin-right: 0px;
 background-color: black;
-}
+}  
 
 .media-chat .media-body p {
     position: relative;
@@ -318,3 +334,94 @@ button, input, optgroup, select, textarea {
 .text-info {
     color: #48b0f7 !important;
 }
+  </style>
+  <script
+  src="https://code.jquery.com/jquery-3.6.1.min.js"
+  integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+  crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="page-content page-container" id="page-content">
+    <div class="padding">
+      <div class="row container ms-auto me-auto d-flex justify-content-center">
+        <div class="col-md-6">
+          <div class="card card-bordered">
+            <div class="card-header">
+              <h4 class="card-title"><strong>Name</strong></h4>
+            </div>
+
+            <div class="ps-container ps-theme-default ps-active-y" id="chat-content" style="overflow-y: scroll !important; height: 400px !important">
+
+
+
+              <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px">
+                <div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px"></div>
+              </div>
+              <div class="ps-scrollbar-y-rail" style="top: 0px; height: 0px; right: 2px">
+                <div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 2px"></div>
+              </div>
+            </div>
+
+            <div class="publisher bt-1 border-light">
+              <img class="avatar avatar-xs" src="https://img.icons8.com/color/36/000000/administrator-male.png" alt="..." />
+              <input class="publisher-input" id="msg" type="text" placeholder="Write something" />
+              <span class="publisher-btn file-group">
+                <i class="fa fa-paperclip file-browser"></i>
+                <input type="file" />
+              </span>
+              <a class="publisher-btn" href="#" data-abc="true"><i class="fa fa-smile"></i></a>
+              <a class="publisher-btn text-info"  data-abc="true"><svg onclick="send()" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send" viewBox="0 0 16 16">
+                  <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    setInterval(function() {
+      
+      $.ajax({
+          url: "chatFetch.php?entEmail=<?php echo($entEmail); ?>",
+          type: "GET",
+          dataType: "JSON",
+          success: function(chat,status) {
+            var len = chat.length;
+            console.log(chat.length);
+            var html = "";
+            for (var i=0; i < len; i++) {
+              if (chat[i].sender == "<?php echo ($investorEmail);?>") {
+                html += "<div class='media media-chat media-chat-reverse'><div class='media-body'><p>" + chat[i].msg + "</p></div></div>";
+              } else
+                html += "<div class='media media-chat'><div class='media-body'><p>" + chat[i].msg + "</p></div></div>";
+            }
+            html += "<div class='ps-scrollbar-x-rail' style='left: 0px; bottom: 0px'><div class='ps-scrollbar-x' tabindex='0' style='left: 0px; width: 0px'></div></div><div class='ps-scrollbar-y-rail' style='top: 0px; height: 0px; right: 2px'><div class='ps-scrollbar-y' tabindex='0' style='top: 0px; height: 2px'></div></div>";
+
+            document.getElementById('chat-content').innerHTML = html;
+          }
+
+        }
+
+      )
+    }, 2000);
+
+    function send() {
+      const req = new XMLHttpRequest();
+
+      req.open("get","http://localhost/Apex-business-match/chatInsert.php?sender=" + "<?php echo ($investorEmail); ?>" + "&receiver=" + "<?php echo ($entEmail); ?>" + "&msg=" + document.getElementById('msg').value, true);
+      req.send();
+      req.onreadystatechange = function() {
+        if (req.readyState == 4 && req.status == 200) {
+          console.log(req.responseText);
+        }
+      }
+    }
+  </script>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+</body>
+
+</html>
