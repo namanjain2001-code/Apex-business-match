@@ -215,9 +215,9 @@ h4.card-title {
 }
 
 .media-chat.media-chat-reverse .media-body p {
-    float: right;
-    clear: right;
-    /* background-color: #48b0f7; */
+    margin-left: auto;
+    margin-right: 0px; 
+    background-color: #48b0f7;
     color: #fff;
 }
 .media-chat-reverse{
@@ -226,12 +226,15 @@ h4.card-title {
     width: 100%;
     margin-right: 0;
 }
-
-.media-chat .media-chat-reverse .media-body {
+/* .media-body{
+  margin-left: auto;
+margin-right: 0px;
+} */
+.media-chat-reverse .media-body {
 margin-left: auto;
 margin-right: 0px;
-background-color: black;
-}
+
+}  
 
 .media-chat .media-body p {
     position: relative;

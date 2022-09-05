@@ -236,17 +236,20 @@ h4.card-title {
     background-color: #48b0f7;
     color: #fff;
 }
-/* .media-chat-reverse{
+.media-chat-reverse{
     float: right;
     clear: right;
     width: 100%;
     margin-right: 0;
 }
-*/
- .media-chat .media-chat-reverse .media-body {
+/* .media-body{
+  margin-left: auto;
+margin-right: 0px;
+} */
+.media-chat-reverse .media-body {
 margin-left: auto;
 margin-right: 0px;
-background-color: black;
+
 }  
 
 .media-chat .media-body p {
@@ -352,7 +355,7 @@ button, input, optgroup, select, textarea {
             </div>
 
             <div class="ps-container ps-theme-default ps-active-y" id="chat-content" style="overflow-y: scroll !important; height: 400px !important">
-
+            <div class='media media-chat media-chat-reverse'><div class='media-body'><p> + chat[i].msg + </p></div></div>
 
 
               <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px">
