@@ -6,3 +6,13 @@ In our platform startups and investors can get all the relevant details about ea
 Startups can get details of investors like who are they,their previous investments and historyand cam even search investors.
 Investors will get all the relevant details about startups and can even sort their search according to type of startups they are intrested to invest in.
 Investors profile cam be viewed by startups and search results include all necessary details about investors and startups.
+
+ # Prerequisite
+ * Install PHP,MYSQL(XAMPP)
+
+
+# How to setup
+* Clone this repo to htdocs folder in xampp folder
+* Add new data-base in phpmyadmin with name apex-bussiness-match(using XAMPP)
+* Import given SQL file
+* Your project is ready at https://localhost/apex-bussiness-match
